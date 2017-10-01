@@ -1,2 +1,28 @@
-<h1>Products#new</h1>
-<p>Find me in app/views/products/new.html.erb</p>
+<div class="container col-sm-6 col-sm-offset-3">
+	<div class="row">
+		<h1>New product</h1>
+	</div>
+	<%= form_for @product do |f| %> 
+	<!-- product form -->
+		<div class="form-group">
+			 <%= f.text_field :name, class: "form-control", placeholder: "Product name" %>
+		</div>
+		<div class="form-group">
+			 <%= f.text_field :price, class: "form-control", placeholder: "Product price" %>
+		</div>
+		<div class="col" id="check-box">
+			<div class="form-group">
+				<% @categories.each do |category| %>
+					<div class="form-check">
+						<label class="form-check-lavel">
+							<input type="checkbox" class="form-check-input">
+							<%= category.name %>
+						</label>
+					</div>
+				<% end %>
+		</div>
+		</div>
+	<!-- <button type="submit" class="btn btn-primary btn-block">Create product</button>	 -->
+	<%= f.submit "Create product", class: "btn btn-primary btn-block" %>
+	<% end %>
+</div>

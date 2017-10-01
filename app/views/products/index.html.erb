@@ -3,7 +3,7 @@
 		<h1>Products</h1>
 	</div>
 	<div class="row">
-		<a href="#" class="btn btn-primary btn-lg col-md-3 ml-auto text-center" id="btn-new-product">new product</a>
+		<a href="products/new" class="btn btn-primary btn-lg col-md-3 ml-auto text-center" id="btn-new-product">new product</a>
 	</div>
 	<div class="row">
 		<table class="table">
@@ -19,9 +19,13 @@
 				<tr>
 					<td><%= product.name %></td>
 					<td><%= product.price %></td>
-					<td>ELectronics, Books</td>
+					<td>
+						<% product.categories.each do |category| %>
+							<%= category.name %>
+						<% end %>
+					</td>
 					<td class="text-center">
-						<a href="#" class="btn btn-primary btn-sm">Edit</a>
+						<a href="products/1/edit" class="btn btn-primary btn-sm">Edit</a>
 						<a href="#" class="btn btn-danger btn-sm">Delete</a>
 					</td>
 				</tr>

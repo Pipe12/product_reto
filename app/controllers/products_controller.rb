@@ -4,11 +4,24 @@ class ProductsController < ApplicationController
   end
 
   def new
+  	@product = Product.new
+  	@categories = Category.all
   end
 
   def create
+  	@product = Product.new(product_params)
+  	if @product.save
+  		redirect_to products_path, notice: "El producto fue publicado con éxito"
+  	else
+  		render :new
+  	end
   end
 
   def update
   end
+
+  private
+    def product_params
+      params.require(:product).permit(:name, :price)
+    end
 end
